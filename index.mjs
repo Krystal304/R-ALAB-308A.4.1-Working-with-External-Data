@@ -85,11 +85,11 @@ Carousel.clear()
         item.height,
         item.id,
         item.width,
+        item.breeds,
       );
-
-
-      // - Append each of these new elements to the carousel.
+  // - Append each of these new elements to the carousel.
       Carousel.appendCarousel(newElement);
+      console.log(newElement)
     });
     } else {
       console.error("No data found", breedData);
