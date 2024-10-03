@@ -48,12 +48,17 @@ initialLoad();
 
 
 // * 2. Create an event handler for breedSelect that does the following:
-async function breedSelectHandler(event) {
+
 
 const breedSelectElement = document.getElementById('breedSelect');
 breedSelectElement.addEventListener('change', breedSelectHandler);
+async function breedSelectHandler(event) {
+
+
   try {
-    const breediD = event.target.value;
+    const breedid = `${event.target.value}`;
+
+    console.log(breedid)
 
     // - Retrieve information on the selected breed from the cat API using fetch().
     const response = await fetch(
@@ -90,13 +95,16 @@ breedSelectElement.addEventListener('change', breedSelectHandler);
    
 
   } catch (error) {
-    console.error("No Items Found");
+    console.error("An error occurred while fetching breed data:", error);
   }
+
 }
 
-// const breedSelectElement = document.getElementById('breedSelect');
-// breedSelectElement.addEventListener('change', breedSelectHandler);
-// breedSelectHandler();
+
+
+
+
+
 
 
 /**
