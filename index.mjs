@@ -56,13 +56,13 @@ async function breedSelectHandler(event) {
 
 
   try {
-    const breedid = `${event.target.value}`;
+      const breedid = event.target.value;
 
-    console.log(breedid)
+    console.log(breedid);
 
     // - Retrieve information on the selected breed from the cat API using fetch().
     const response = await fetch(
-      `https://api.thecatapi.com/v1/images/search?breed_ids=${breed.id}`
+      `https://api.thecatapi.com/v1/images/search?breed_ids=${breedid}&api_key=${API_KEY}`
     );
     const breedData = await response.json();
 
@@ -73,16 +73,18 @@ async function breedSelectHandler(event) {
     if (Array.isArray(breedData) && breedData.length > 0) {
       console.log("Received multiple array items:", breedData);
 
-    Carousel.clearCarousel();
+Carousel.clear()
 
 
 
 //  For each object in the response array, create a new element for the carousel.
     breedData.forEach((item) => {
+      console.log(item)
       const newElement = Carousel.createCarouselItem(
         item.url,
-        item.breeds[0].name,
-        item.id
+        item.height,
+        item.id,
+        item.width,
       );
 
 
