@@ -62,7 +62,7 @@ async function breedSelectHandler(event) {
 
     // - Retrieve information on the selected breed from the cat API using fetch().
     const response = await fetch(
-      `https://api.thecatapi.com/v1/images/search?breed_ids=${breedid}&api_key=${API_KEY}`
+      `https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=${breedid}&api_key=${API_KEY}`
     );
     const breedData = await response.json();
 
@@ -75,7 +75,7 @@ async function breedSelectHandler(event) {
 
 Carousel.clear()
 
-
+console.log(breedData)
 
 //  For each object in the response array, create a new element for the carousel.
     breedData.forEach((item) => {
@@ -89,7 +89,9 @@ Carousel.clear()
       );
   // - Append each of these new elements to the carousel.
       Carousel.appendCarousel(newElement);
+      Carousel.start()
       console.log(newElement)
+     
     });
     } else {
       console.error("No data found", breedData);
