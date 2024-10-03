@@ -30,8 +30,10 @@ async function initialLoad() {
 
       // Each option should have a value attribute equal to the id of the breed.
       newOptions.setAttribute("value", breed.id)
+
       console.log(breed.id);
       // Each option should display text equal to the name of the breed.
+
       newOptions.textContent = breed.name;
       console.log(breed.name);
       breedSelect.appendChild(newOptions);
@@ -47,8 +49,11 @@ initialLoad();
 
 // * 2. Create an event handler for breedSelect that does the following:
 async function breedSelectHandler(event) {
+
+const breedSelectElement = document.getElementById('breedSelect');
+breedSelectElement.addEventListener('change', breedSelectHandler);
   try {
-    const breedID = event.target.value;
+    const breediD = event.target.value;
 
     // - Retrieve information on the selected breed from the cat API using fetch().
     const response = await fetch(
@@ -85,10 +90,13 @@ async function breedSelectHandler(event) {
    
 
   } catch (error) {
-    console.error("No Items Found", error);
+    console.error("No Items Found");
   }
 }
-console.log(breedData)
+
+// const breedSelectElement = document.getElementById('breedSelect');
+// breedSelectElement.addEventListener('change', breedSelectHandler);
+// breedSelectHandler();
 
 
 /**
