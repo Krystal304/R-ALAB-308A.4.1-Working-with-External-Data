@@ -27,14 +27,14 @@ async function initialLoad() {
     axios.interceptors.request.use (request =>{
         console.log(`request successfully sent`)
 
-        return request
+        return response
     })
 
     // intercepts responses
     axios.interceptors.response.use(request =>{ 
         console.log(`response has been received`)
         
-        return request
+        return response
     })
     const breedSelect = document.getElementById("breedSelect");
 
