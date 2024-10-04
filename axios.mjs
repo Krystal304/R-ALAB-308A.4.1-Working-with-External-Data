@@ -16,12 +16,12 @@ const API_KEY =
 // Part 2: Tasks
 // Create and async function "initialLoad" that does the following:
 async function initialLoad() {
-  try {
+//   try {
     //Retrieve a list of breeds from the cat API using fetch().
     const response = await axios ("https://api.thecatapi.com/v1/breeds");
     // const data = await response.json();
   
-    console.log(data)
+    console.log(response)
     
     // intercepts requests 
     axios.interceptors.request.use (request =>{
@@ -53,9 +53,9 @@ async function initialLoad() {
       breedSelect.appendChild(newOptions);
       console.log(breed);
     });
-  } catch (error) {
-    console.error("error fetching breeds", error);
-  }
+//   } catch (error) {
+//     console.error("error fetching breeds", error);
+//   }
 }
 // call function // This function should execute immediately.
 initialLoad();
@@ -75,10 +75,10 @@ async function breedSelectHandler(event) {
     console.log(breedid);
 
     // - Retrieve information on the selected breed from the cat API using fetch().
-    const response = await fetch(
+    const response = await axios(
       `https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=${breedid}&api_key=${API_KEY}`
     );
-    const breedData = await response.json();
+    // const breedData = await response.json();
 
 //     - Make sure your request is receiving multiple array items!
 //  *  - Check the API documentation if you're only getting a single object.
