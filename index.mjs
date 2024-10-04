@@ -104,7 +104,7 @@ console.log(breedData)
 
 }
 
-
+//  * - Use the other data you have been given to create an informational section within the infoDump element.
 function newInfoDump(newData){
 const infoDump = document.getElementById("infoDump");
 
@@ -113,7 +113,13 @@ infoDump.innerHTML = ``;
 newData.forEach((item, index) =>{
   let newSlide = document.createElement(`div`);
   newSlide.classList.add(`carousel-slide`);
-
+  // * - Use the other data you have been given to create an informational section within the infoDump element.
+//  *  - Be creative with how you create DOM elements and HTML.
+//  *  - Feel free to edit index.html and styles.css to suit your needs, but be careful!
+//  *  - Remember that functionality comes first, but user experience and design are important.
+//  * - Each new selection should clear, re-populate, and restart the Carousel.
+//  * - Add a call to this function to the end of your initialLoad function above to create the initial carousel.
+//  */
   newSlide.innerHTML= `<h2>${item.intelligence}</h2>
                        <p>${breedInfoSection.child_friendly}</p>
                         <p>${breedInfoSection.social_needs}</p>
@@ -127,13 +133,6 @@ Carousel.start();
 
 
  
-//  * - Use the other data you have been given to create an informational section within the infoDump element.
-//  *  - Be creative with how you create DOM elements and HTML.
-//  *  - Feel free to edit index.html and styles.css to suit your needs, but be careful!
-//  *  - Remember that functionality comes first, but user experience and design are important.
-//  * - Each new selection should clear, re-populate, and restart the Carousel.
-//  * - Add a call to this function to the end of your initialLoad function above to create the initial carousel.
-//  */
 
 /**
  * 3. Fork your own sandbox, creating a new one named "JavaScript Axios Lab."
@@ -148,6 +147,9 @@ Carousel.start();
  *   send it manually with all of your requests! You can also set a default base URL!
  */
 /**
+ * 
+ * 
+ * 
  * 5. Add axios interceptors to log the time between request and response to the console.
  * - Hint: you already have access to code that does this!
  * - Add a console.log statement to indicate when requests begin.
