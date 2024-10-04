@@ -79,7 +79,7 @@ console.log(breedData)
 
 //  For each object in the response array, create a new element for the carousel.
     breedData.forEach((item) => {
-      console.log(item)
+      console.log(breedData)
       const newElement = Carousel.createCarouselItem(
         item.url,
         item.height,
@@ -110,7 +110,8 @@ const infoDump = document.getElementById("infoDump");
 
 infoDump.innerHTML = ``;
 
-newData.forEach((item, index) =>{
+newData.forEach((item) =>{
+  console.log(newData)
   let newSlide = document.createElement(`div`);
   newSlide.classList.add(`carousel-slide`);
   // * - Use the other data you have been given to create an informational section within the infoDump element.
@@ -121,18 +122,19 @@ newData.forEach((item, index) =>{
 //  * - Add a call to this function to the end of your initialLoad function above to create the initial carousel.
 //  */
   newSlide.innerHTML= `<h2>${item.intelligence}</h2>
-                       <p>${breedInfoSection.child_friendly}</p>
-                        <p>${breedInfoSection.social_needs}</p>
-                        <p>${breedInfoSection.experimental}</p>`
+                       <p>${item.child_friendly}</p>
+                        <p>${item.social_needs}</p>
+                        <p>${item.experimental}</p>`
 
 ;
 infoDump.appendChild(slide);
 });
 Carousel.start();
+
 }
+// newInfoDump();
 
 
- 
 
 /**
  * 3. Fork your own sandbox, creating a new one named "JavaScript Axios Lab."
