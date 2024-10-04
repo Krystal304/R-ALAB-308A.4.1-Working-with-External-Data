@@ -18,10 +18,24 @@ const API_KEY =
 async function initialLoad() {
   try {
     //Retrieve a list of breeds from the cat API using fetch().
-    const response = await fetch("https://api.thecatapi.com/v1/breeds");
-    const data = await response.json();
+    const response = await axios ("https://api.thecatapi.com/v1/breeds");
+    // const data = await response.json();
   
     console.log(data)
+    
+    // intercepts requests 
+    axios.interceptors.request.use (request =>{
+        console.log(`request successfully sent`)
+
+        return request
+    })
+
+    // intercepts responses
+    axios.interceptors.response.use(request =>{ 
+        console.log(`response has been received`)
+        
+        return request
+    })
     const breedSelect = document.getElementById("breedSelect");
 
     data.forEach((breed) => {
