@@ -75,7 +75,7 @@ async function breedSelectHandler(event) {
     console.log(breedid);
 
     // - Retrieve information on the selected breed from the cat API using fetch().
-    const response = await axios(
+    const response = await axios.get(
       `https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=${breedid}&api_key=${API_KEY}`
     );
     // const breedData = await response.json();
